@@ -1,0 +1,1 @@
+add_subdirectory(${AUDITTOOLS_DIR}/src/apps/gui)
