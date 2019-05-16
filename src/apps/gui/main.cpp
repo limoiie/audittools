@@ -1,10 +1,19 @@
 #include <iostream>
+#include <rxcpp/rx.hpp>
+#include <string>
 
-#include <common/hello.h>
+namespace rx = rxcpp;
 
 using namespace std;
+using namespace std::chrono;
 
 int main() {
-  print_hello();
+  auto const stream = rx::observable<>::interval<>(seconds(1))
+                          .take(10)
+                          .map([](int const count) {
+                            return std::to_string(count).append(" seconds");
+                          });
+  stream.subscribe(
+      [](std::string const& statement) { cout << statement << endl; });
   return 0;
 }

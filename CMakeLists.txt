@@ -5,8 +5,9 @@ project(audittools)
 # instead of -std=c++11
 add_definitions(-std=gnu++11)
 
+set_property(GLOBAL PROPERTY USE_FOLDERS ON) 
+
 set(AUDITTOOLS_DIR ${CMAKE_CURRENT_SOURCE_DIR})
-message(STATUS ${AUDITTOOLS_DIR})
 
 # the dependency direction is:
 # test -> apps -> libs -> core -> ext

@@ -1,0 +1,6 @@
+[submodule "ext/rxcpp"]
+	path = ext/rxcpp
+	url = https://github.com/ReactiveX/RxCpp
+[submodule "ext/googletest"]
+	path = ext/googletest
+	url = https://github.com/google/googletest.git
