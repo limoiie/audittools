@@ -9,7 +9,6 @@ using namespace std;
 
 GTEST_TEST(TestCommon, test_hello) {
   print_hello();
-  print_hello();
 }
 
 }  // namespace

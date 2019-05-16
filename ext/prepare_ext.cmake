@@ -3,3 +3,4 @@ file(MAKE_DIRECTORY ${BINARY_EXT_DIR})
 
 include(${AUDITTOOLS_DIR}/ext/add_googletest.cmake)
 include(${AUDITTOOLS_DIR}/ext/add_rxcpp.cmake)
+include(${AUDITTOOLS_DIR}/ext/add_spdlog.cmake)

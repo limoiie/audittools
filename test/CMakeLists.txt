@@ -1,4 +1,4 @@
-add_executable(test_common_cases test-hello.cpp)
+add_executable(test_common_cases test-hello.cpp test-log.cpp)
 target_link_libraries(test_common_cases core gtest_main)
 
 add_executable(test_rxcpp test-rxcpp.cpp)
