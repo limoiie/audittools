@@ -5,6 +5,10 @@
 
 namespace logger {
 
+  enum level_e {
+    TRACE, DEBUG, INFO, WARN, ERR, FATAL
+  };
+
 #define DEFINE_LOG_FUNCTION(LEVEL, SPD_FUNC) \
   template<typename... AN> \
   void LEVEL(AN... an) { \
