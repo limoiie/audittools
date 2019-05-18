@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CORE_COMMON_SINGLETON_H
+#define CORE_COMMON_SINGLETON_H
 
 #include <memory>
 
@@ -19,3 +20,5 @@ class Singleton {
 
   static void release() { instance().reset(); }
 };
+
+#endif // CORE_COMMON_SINGLETON_H

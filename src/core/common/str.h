@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CORE_COMMON_STR_H
+#define CORE_COMMON_STR_H
 
 #include <common/Result.hpp>
 #include <string>
@@ -20,3 +21,5 @@ bool unicode_to_ansi(std::wstring const& unicode_string,
                      ansi_encoding_e encoding, std::string& ansi_string);
 
 }  // namespace str
+
+#endif

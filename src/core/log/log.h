@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CORE_COMMON_LOG_H
+#define CORE_COMMON_LOG_H
 
 #include <spdlog/spdlog.h>
 #include <spdlog/sinks/basic_file_sink.h>
@@ -25,3 +26,5 @@ namespace logger {
 #undef DEFINE_LOG_FUNCTION
 
 }
+
+#endif // CORE_COMMON_LOG_H
