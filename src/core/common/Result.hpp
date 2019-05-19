@@ -1,4 +1,6 @@
-#pragma once
+#ifndef CORE_COMMON_RESULT_H
+#define CORE_COMMON_RESULT_H
+
 #include <exception>
 
 template <class ErrType>
@@ -50,3 +52,5 @@ inline bool dose_this_mean_error<std::exception_ptr>(
     std::exception_ptr const& err) {
   return err.operator bool();
 }
+
+#endif // CORE_COMMON_RESULT_H
