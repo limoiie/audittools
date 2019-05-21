@@ -20,6 +20,10 @@
 
 version 1.70.0
 
+### everything
+
+consider using everything to index filesystem
+
 ## Develop Notes
 
 ### Develop Mind Flow
@@ -29,6 +33,14 @@ LoadMod --> PrepareRuntimeFolder -> Raw/AppConfig -> Path/Folder Operation -> bo
         |            +-> **CheckInteger** & RuntimeConfig & PrepareEnv
         |
         +-> InitialLog
+
+### Load Chain
+
+- launch:
+  - todo: DumpHandler: -> todo: CheckInteger -> RuntimeConfig -> PrepareEnv -> InitLog
+
+- shutdown:
+  - todo: ClearTempFolder -> todo: ClearEnv
 
 ### Module Dependency
 

@@ -6,10 +6,7 @@
 #include <base/RawConfig.hpp>
 #include <common/Singleton.hpp>
 #include <common/serialization.hpp>
-
-// TODO: move this out of gui
-#define APP_NAME "AuditTools"
-#define CFG_NAME "RuntimeConfig.json"
+#include <base.h>
 
 class AppConfig final : public Singleton<AppConfig> {
   friend class Singleton<AppConfig>;

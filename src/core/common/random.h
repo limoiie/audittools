@@ -3,19 +3,17 @@
 
 #include <string>
 
-std::string random_filename(unsigned const rand_len,
-                            std::string const& prefix = "",
-                            std::string const& subfix = "") {
-  std::string chars(
-      "abcdefghijklmnopqrstuvwxyz"
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-      "1234567890");
-  auto const chars_cnt = chars.size();
+#include <boost/filesystem/path.hpp>
 
-  std::string filename(rand_len, '\0');
-  for (unsigned i = 0; i < rand_len; ++i)
-    filename[i] = chars[rand() % chars_cnt];
-  return std::string(prefix).append(filename).append(subfix);
-}
+std::string 
+random_filename(unsigned const rand_len,
+                std::string const& prefix = "",
+                std::string const& subfix = "");
+
+boost::filesystem::path 
+random_unique_file(unsigned rand_len,
+                   boost::filesystem::path const& folder,
+                   std::string const& prefix = "", 
+                   std::string const& subfix = "");
 
 #endif  // CORE_COMMON_RANDOM_H

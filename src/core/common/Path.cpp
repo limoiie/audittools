@@ -42,7 +42,7 @@ Result<boost::filesystem::path, bool> get_system_dir() {
 Result<boost::filesystem::path, bool> get_appdata_dir() {
   WCHAR app_data_path[MAX_PATH + 2];
   WCHAR short_app_data_path[MAX_PATH + 2] = {0};
-  memset(app_data_path, 0, _MAX_PATH);
+  memset(app_data_path, 0, _MAX_PATH + 2);
 
   LPITEMIDLIST pidl = nullptr;
   SHGetSpecialFolderLocation(nullptr, CSIDL_LOCAL_APPDATA, &pidl);
@@ -51,6 +51,15 @@ Result<boost::filesystem::path, bool> get_appdata_dir() {
     return make_result(boost::filesystem::path(app_data_path), false);
   }
   return make_result(boost::filesystem::path(), true);
+}
+
+Result<boost::filesystem::path, bool> get_temp_dir() {
+  WCHAR temp[MAX_PATH + 2] = {0};
+  auto const len = ::GetTempPathW(MAX_PATH + 1, temp);
+
+  if (len <= 0 || len > MAX_PATH)
+    return make_result(boost::filesystem::path(), true);
+  return make_result(boost::filesystem::path(temp), false);
 }
 
 }  // namespace path
