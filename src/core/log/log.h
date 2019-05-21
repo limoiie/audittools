@@ -7,8 +7,18 @@
 namespace logger {
 
   enum level_e {
-    TRACE, DEBUG, INFO, WARN, ERR, FATAL
+    TRACE  = SPDLOG_LEVEL_TRACE, 
+    DEBUG  = SPDLOG_LEVEL_DEBUG, 
+    INFO   = SPDLOG_LEVEL_INFO, 
+    WARN   = SPDLOG_LEVEL_WARN, 
+    ERR    = SPDLOG_LEVEL_ERROR, 
+    FATAL  = SPDLOG_LEVEL_CRITICAL
   };
+
+  inline
+  spdlog::level::level_enum to_spd_lvl(level_e const lvl) {
+    return static_cast<spdlog::level::level_enum>(lvl);
+  }
 
 #define DEFINE_LOG_FUNCTION(LEVEL, SPD_FUNC) \
   template<typename... AN> \

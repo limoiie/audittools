@@ -1,6 +1,7 @@
 #pragma once
 
 #include <domain/UseCase.hpp>
+#include <vector>
 
 struct OutMessage {
   unsigned step;
@@ -11,7 +12,7 @@ struct OutMessage {
 };
 
 /**
- * \brief Derive this class to do special initialization before 
+ * \brief Derive this class to do special initialization before
  * app actually runs. NOTE this UseCase has a Void InType, which
  * does not means you cannot pass a param to the mod. You can,
  * and also you should, handle the param in each separate derive
@@ -23,18 +24,19 @@ class LoadMod : public UseCase<OutMessage, Void> {
   using InType = Void;
 
  public:
-  explicit LoadMod()
-      : UseCase<OutType, InType>(Void()) {}
+  explicit LoadMod() : UseCase<OutType, InType>(Void()) {}
+
+  static std::vector<std::shared_ptr<LoadMod>> load_chain();
 
  protected:
-  void run() noexcept override = 0;
+  void run() noexcept override final;
+  virtual void run_imp() = 0;
 
-  auto make_result(std::string message) {
-    auto const out_message =
-        std::make_shared<OutMessage>(step_++, std::move(message));
-    return out_message;
-  }
+  void log(std::string msg);
 
  private:
+   std::shared_ptr<OutMessage> make_result(std::string message);
+   
   unsigned step_{0};
+
 };

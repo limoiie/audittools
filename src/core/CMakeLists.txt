@@ -1,11 +1,11 @@
 include_directories(.)
 
 add_library(core 
-  common/hello.h
-  common/hello.cpp
+  common/random.h
+  common/serialization.hpp
   common/Singleton.hpp
-  common/Path.cpp
-  common/Path.h
+  common/path.cpp
+  common/path.h
   common/Result.hpp
   common/str.cpp
   common/str.h

@@ -20,8 +20,10 @@ struct Result {
       : value(value), error(error) {}
 
   Result(ValType&& value, ErrType&& error)
-      : value(std::forward<ValType>(value)), error(std::forward<ErrType>(error)) {}
+      : value(std::forward<ValType>(value)),
+        error(std::forward<ErrType>(error)) {}
 
+  bool valid() const { return !has_error(); }
   bool has_error() const { return dose_this_mean_error(error); }
 };
 
@@ -53,4 +55,4 @@ inline bool dose_this_mean_error<std::exception_ptr>(
   return err.operator bool();
 }
 
-#endif // CORE_COMMON_RESULT_H
+#endif  // CORE_COMMON_RESULT_H
