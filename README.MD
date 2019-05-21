@@ -37,7 +37,7 @@ LoadMod --> PrepareRuntimeFolder -> Raw/AppConfig -> Path/Folder Operation -> bo
 ### Load Chain
 
 - launch:
-  - todo: DumpHandler: -> todo: CheckInteger -> RuntimeConfig -> PrepareEnv -> InitLog
+  - DumpHandler: -> todo: CheckInteger -> RuntimeConfig -> PrepareEnv -> InitLog
 
 - shutdown:
   - todo: ClearTempFolder -> todo: ClearEnv
@@ -57,3 +57,14 @@ Up to now, the dependency of ext list below:
 >> apps/gui                       -> ext/rxcpp
 >> core/common/log                -> ext/spdlog
 >> core/common/serialization      -> ext/cereal
+
+## Todo
+
+- model + sqlite
+- little-tools
+- filecheck
+  - 7z: list + uncompress
+  - everything: query + index
+- shutdown::ClearEnv
+- shutdown::ClearTempFolder
+- launch::CheckInteger

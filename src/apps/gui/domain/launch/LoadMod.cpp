@@ -14,6 +14,7 @@ auto const kInitLogParamLoader = [](InitLogParam* param) {
   param->log_file = AppConfig::instance()->app_log_file();
 };
 
+// TODO: Move to a dependency inject cpp
 std::vector<std::shared_ptr<LoadMod>> LoadMod::load_chain() {
   auto const temp_dir = path::get_temp_dir();
   if (temp_dir.has_error())
