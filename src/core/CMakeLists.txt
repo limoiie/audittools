@@ -5,8 +5,6 @@ add_library(core
   common/random.h
   common/serialization.hpp
   common/Singleton.hpp
-  common/path.cpp
-  common/path.h
   common/Result.hpp
   common/str.cpp
   common/str.h
@@ -14,4 +12,6 @@ add_library(core
   log/log.h
   system/register_dump.cpp
   system/register_dump.h
+  system/path.cpp
+  system/path.h
 )

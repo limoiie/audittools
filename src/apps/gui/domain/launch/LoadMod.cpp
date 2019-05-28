@@ -6,7 +6,7 @@
 #include <domain/launch/LoadModInitLog.h>
 #include <domain/AppConfig.h>
 
-#include <common/path.h>
+#include <system/path.h>
 
 auto const kInitLogParamLoader = [](InitLogParam* param) {
   param->logger_name = AppConfig::instance()->app_name();

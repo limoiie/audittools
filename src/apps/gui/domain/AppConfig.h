@@ -8,6 +8,12 @@
 #include <common/serialization.hpp>
 #include <base.h>
 
+
+/**
+ * \brief This class is a configuration designed for other apps and will be 
+ * shared through a config file. NOTICE: If you want an user config, see 
+ * %class RawConfig
+ */
 class AppConfig final : public Singleton<AppConfig> {
   friend class Singleton<AppConfig>;
   friend class AppConfigParser;

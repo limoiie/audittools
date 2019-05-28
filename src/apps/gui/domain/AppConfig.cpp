@@ -1,4 +1,4 @@
-#include <common/Path.h>
+#include <system/path.h>
 #include <domain/AppConfig.h>
 
 static void format_path(std::string& path);

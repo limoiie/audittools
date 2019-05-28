@@ -22,9 +22,9 @@ struct LogConfig final {
 
 /**
  * NOTE: You should use AppConfig to access the config instead of
- * this class. This class will parse user's config file and AppConfig
- * will process it with more necessary actions according to the
- * runtime environment.
+ * this class. This class will parse user's config file. While %class
+ * AppConfig will process it with more necessary actions and append 
+ * with more information according to the runtime environment.
  */
 class RawConfig final : Singleton<RawConfig> {
   friend class Singleton<RawConfig>;

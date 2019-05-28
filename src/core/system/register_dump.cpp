@@ -6,7 +6,7 @@
 #include <DbgHelp.h>
 #include <ShlObj.h>
 
-#include <common/path.h>
+#include <system/path.h>
 #include <common/random.h>
 
 static

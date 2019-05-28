@@ -3,6 +3,7 @@ include_directories(.)
 set(GUI_SRC_FILES
     base.h
     base/RawConfig.hpp
+	base/model/DataModel.h
     domain/AppConfig.cpp
     domain/AppConfig.h
     domain/UseCase.hpp
