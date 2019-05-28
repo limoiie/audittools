@@ -5,11 +5,16 @@ target_link_libraries(test_core_cases core gtest_main
 		Boost::boost Boost::filesystem Boost::random)
 
 # test extension
-add_executable(test_ext test-rxcpp.cpp test-boost.cpp)
-target_link_libraries(test_ext gtest_main Boost::boost 
+add_executable(test_ext 
+        ext/test-rxcpp.cpp 
+        ext/test-boost.cpp
+        ext/test-sqlitecpp.cpp
+        )
+target_link_libraries(test_ext core gtest_main Boost::boost 
         Boost::regex Boost::filesystem Boost::locale Boost::system
         Boost::context)
 config_target_for_rxcpp(test_ext)
+config_target_for_sqlitecpp(test_ext)
 
 # test apps/gui
 set(GUI_FOLDER ${AUDITTOOLS_DIR}/src/apps/gui)

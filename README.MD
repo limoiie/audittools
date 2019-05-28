@@ -65,6 +65,9 @@ Up to now, the dependency of ext list below:
 - filecheck
   - 7z: list + uncompress
   - everything: query + index
+- merge shutdown into LoadMod as a unload method
+- refactor launch::RuntimeConfig as launch::ConfigApp
+- add launch::RuntimeConfig for path imbue
 - shutdown::ClearEnv
 - shutdown::ClearTempFolder
 - launch::CheckInteger

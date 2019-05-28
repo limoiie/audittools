@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include <common/path.h>
+#include <system/path.h>
 #include <gtest/gtest.h>
 
 namespace {
