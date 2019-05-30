@@ -2,7 +2,7 @@
 
 #include <string>
 
-// define a new ITEM, you need do follow steps:
+// NOTE: define a new ITEM, you need do follow steps:
 // 1. ItemType.h add ITEM_NEW macro in enum item_e;
 // 2. ItemType.h DEF_ITEM(ItemNew, new_t, ITEM_NEW)
 // 3. xxx_converter.h DEF_CONVERT(xxxTag, OutType, ItemNew)

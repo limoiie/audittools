@@ -28,7 +28,9 @@ foreach(SRC_FILE ${_GUI_SRC_FILES})
 endforeach()
 
 include_directories(${GUI_FOLDER})
-add_executable(test_gui ${GUI_ABS_SRC_FILES} gui/test-config.cpp)
+add_executable(test_gui ${GUI_ABS_SRC_FILES} 
+		gui/test-config.cpp
+		gui/test-table.cpp)
 target_link_libraries(test_gui core gtest_main
 		Boost::boost Boost::filesystem Dbghelp.lib)
 config_target_for_rxcpp(test_gui)

@@ -45,7 +45,7 @@ using remove_shared_ptr_t = typename remove_shared_ptr<T>::type;
 
 
 template <typename V>
-void cast_append(V& v) {
+void cast_append(V&) {
 }
 
 template <typename V, typename T, typename ...Args>
