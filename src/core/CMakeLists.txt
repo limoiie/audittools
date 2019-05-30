@@ -8,6 +8,7 @@ add_library(core
   common/Result.hpp
   common/str.cpp
   common/str.h
+  common/util_traits.h
   log/log.cpp
   log/log.h
   system/register_dump.cpp
