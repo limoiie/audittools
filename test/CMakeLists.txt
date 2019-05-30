@@ -1,18 +1,21 @@
 # test core
-add_executable(test_core_cases test-log.cpp test-str.cpp
-		test-serialization.cpp test-common.cpp)
+add_executable(test_core_cases 
+		test-log.cpp 
+		test-str.cpp
+		test-serialization.cpp 
+		test-common.cpp)
 target_link_libraries(test_core_cases core gtest_main
 		Boost::boost Boost::filesystem Boost::random)
 
 # test extension
 add_executable(test_ext 
-        ext/test-rxcpp.cpp 
-        ext/test-boost.cpp
+		ext/test-boost.cpp
+		ext/test-rxcpp.cpp
         ext/test-sqlitecpp.cpp
-        )
+        ext/test-qt.cpp)
 target_link_libraries(test_ext core gtest_main Boost::boost 
         Boost::regex Boost::filesystem Boost::locale Boost::system
-        Boost::context)
+        Boost::context Qt5::Core Qt5::Gui Qt5::Widgets)
 config_target_for_rxcpp(test_ext)
 config_target_for_sqlitecpp(test_ext)
 
@@ -27,7 +30,7 @@ endforeach()
 include_directories(${GUI_FOLDER})
 add_executable(test_gui ${GUI_ABS_SRC_FILES} gui/test-config.cpp)
 target_link_libraries(test_gui core gtest_main
-		Boost::boost Boost::filesystem)
+		Boost::boost Boost::filesystem Dbghelp.lib)
 config_target_for_rxcpp(test_gui)
 
 # misc

@@ -13,3 +13,6 @@
 [submodule "ext/sqlitecpp"]
 	path = ext/sqlitecpp
 	url = https://github.com/SRombauts/SQLiteCpp.git
+[submodule "ext/rxqt"]
+	path = ext/rxqt
+	url = https://github.com/tetsurom/rxqt.git
