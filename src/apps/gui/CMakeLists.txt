@@ -5,7 +5,6 @@ set(CMAKE_EXE_LINKER_FLAGS "/SAFESEH:NO /level='requireAdministrator'")
 set(GUI_SRC_FILES
     base.h
     base/RawConfig.hpp
-    base/model/DataModel.h
     base/model/ItemType.h
     base/model/table.h
     domain/AppConfig.cpp

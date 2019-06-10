@@ -76,6 +76,9 @@ namespace table
 
   };
 
+
+#pragma region table-define-helper
+
 #define DATA_TO_ROW make_row
 
 #define DEF_ROWLIZE_FUNC(...) \
@@ -103,6 +106,9 @@ namespace table
   DEF_ROWLIZE_FUNC(CHOOSE_JUMP1(__VA_ARGS__)) \
   DEF_LABEL_FUNC(LABEL) \
   DEF_FIELD_LABELS_FUNC(CHOOSE_JUMP1_FROM_SECOND(__VA_ARGS__))
+
+#pragma endregion
+
 
   template <typename DataType>
   class InMemTable final : public Table<DataType> {

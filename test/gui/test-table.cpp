@@ -5,15 +5,15 @@
 
 namespace
 {
-  CpuData create_cpu_data() {
+  CpuData create_cpu_data(std::string const& name, std::string const& type) {
     auto cp = CpuData();
-    cp.name.val = "Intel";
-    cp.type.val = "Core i7";
+    cp.name.val = name;
+    cp.type.val = type;
     return cp;
   }
 
   GTEST_TEST(TestItem, test_data) {
-    create_cpu_data();
+    create_cpu_data("", "");
     auto const lable = CpuData::label();
     auto const fields = CpuData::field_labels();
   }
@@ -22,13 +22,13 @@ namespace
     table::InMemTable<CpuData> t;
     ASSERT_EQ(t.cols(), CpuData::field_labels().size());
    
-    t.append(create_cpu_data());
+    t.append(create_cpu_data("", ""));
     ASSERT_EQ(t.rows(), static_cast<size_t>(1));
   }
 
   GTEST_TEST(TestItem, test_convert) {
     table::InMemTable<CpuData> t;
-    t.append(create_cpu_data());
+    t.append(create_cpu_data("Intel", "Core i7"));
 
     auto r = t.row(0);
     auto const x = convert_dynamic<GuiTag, std::string>()(r[0]);
