@@ -10,8 +10,9 @@
 
 #include <rxqt.hpp>
 
-#include <domain/launch/LoadMod.h>
 #include <log/log.h>
+#include <domain/launch/LoadMod.h>
+#include <presenter/view/MainWindow.h>
 
 // TODO: Move to Presenter
 void load_mod_chain() {
@@ -68,8 +69,11 @@ int test_rxqt(int argc, char *argv[]) {
   return QApplication::exec();
 }
 
-int main() {
-  load_mod_chain();
-  return 0;
-  // return test_rxqt(argc, argv);
+int main(int argc, char *argv[]) {
+  QApplication app(argc, argv);
+  
+  MainWindow main_window;
+  main_window.show();
+
+  return QApplication::exec();
 }
