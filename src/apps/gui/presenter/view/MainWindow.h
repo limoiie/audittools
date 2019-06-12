@@ -17,6 +17,11 @@ class MainWindow final : public QWidget {
 public:
   explicit MainWindow(QWidget *parent = nullptr);
 
+public slots:
+  void append_data() const;
+  void reset_data() const;
+  void fresh_data() const;
+
 private:
   std::shared_ptr<Ui::MainWindow> ui_;
   std::shared_ptr<table::Table<CpuData>> model_;

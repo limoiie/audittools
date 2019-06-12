@@ -34,7 +34,7 @@
          <height>391</height>
         </rect>
        </property>
-       <layout class="QVBoxLayout" name="bodyLayout">
+       <layout class="QVBoxLayout" name="bodyLayout" stretch="0,0">
         <item>
          <widget class="QWidget" name="controlBar" native="true">
           <widget class="QWidget" name="horizontalLayoutWidget">
@@ -42,8 +42,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>389</width>
-             <height>151</height>
+             <width>521</width>
+             <height>41</height>
             </rect>
            </property>
            <layout class="QHBoxLayout" name="controlBarLayout">
@@ -58,6 +58,13 @@
              <widget class="QPushButton" name="resetButton">
               <property name="text">
                <string>Reset</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="freshButton">
+              <property name="text">
+               <string>Fresh</string>
               </property>
              </widget>
             </item>
@@ -91,6 +98,9 @@
        </layout>
       </widget>
      </widget>
+    </item>
+    <item>
+     <widget class="QStatusBar" name="statusBar"/>
     </item>
    </layout>
   </widget>

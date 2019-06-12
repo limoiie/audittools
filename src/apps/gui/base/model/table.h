@@ -42,10 +42,13 @@ namespace table
     virtual size_t rows() const = 0;
     virtual size_t cols() const = 0;
 
-    virtual row_const_t row(size_t r) = 0;
+    // virtual row_const_t row(size_t r) = 0;
     virtual row_const_t row(size_t r) const = 0;
 
-    virtual item_const_t item(size_t r, size_t c) = 0;
+    // virtual std::vector<row_const_t> row(size_t s, size_t e) = 0;
+    virtual std::vector<row_const_t> row(size_t s, size_t e) const = 0;
+
+    // virtual item_const_t item(size_t r, size_t c) = 0;
     virtual item_const_t item(size_t r, size_t c) const = 0;
 
   };
@@ -116,18 +119,32 @@ namespace table
     size_t rows() const override {
       return table_.size();
     }
-
-    row_const_t row(size_t const r) override {
-      return table_[r].DATA_TO_ROW();
-    }
+    //
+    // row_const_t row(size_t const r) override {
+    //   if (r < table_.size())
+    //     return table_[r].DATA_TO_ROW();
+    //   return {};
+    // }
 
     row_const_t row(size_t const r) const override {
-      return table_[r].DATA_TO_ROW();
+      if (r < table_.size())
+        return table_[r].DATA_TO_ROW();
+      return {};
     }
 
-    item_const_t item(size_t const r, size_t const c) override {
-      return row(r)[c];
+    std::vector<row_const_t> row(size_t const s, size_t const e) const override {
+      if (s < e && e <= table_.size()) {
+        std::vector<row_const_t> row_list;
+        for (auto i = s; i < e; ++i)
+          row_list.emplace_back(std::move(row(i)));
+        return std::move(row_list);
+      }
+      return {};
     }
+
+    // item_const_t item(size_t const r, size_t const c) override {
+    //   return row(r)[c];
+    // }
 
     item_const_t item(size_t const r, size_t const c) const override {
       return row(r)[c];

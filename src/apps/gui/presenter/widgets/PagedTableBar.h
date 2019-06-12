@@ -1,7 +1,7 @@
 #ifndef PAGEDTABLEBAR_H
 #define PAGEDTABLEBAR_H
 
-#include <QWidget>
+#include <QPushButton>
 
 
 namespace Ui
@@ -16,6 +16,9 @@ public:
   explicit PagedTableBar(QWidget *parent = nullptr);
 
   size_t get_goto_page() const;
+
+  QPushButton* up_button() const;
+  QPushButton* down_button() const;
 
 public slots:
   void update_ui(size_t max_page, size_t curr_page);
