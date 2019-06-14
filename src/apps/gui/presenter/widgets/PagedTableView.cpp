@@ -76,7 +76,7 @@ struct PagedTableModel : TableModel {
   }
 
   size_t pages() const {
-    return wrapper_->core->rows() / page_max_size + 
+    return wrapper_->core->rows() / page_max_size +
       (wrapper_->core->rows() % page_max_size ? 1 : 0);
   }
 
@@ -162,6 +162,7 @@ PagedTableView::PagedTableView(QWidget* parent)
   ui_->tableView->horizontalHeader()->setStretchLastSection(true);
   ui_->tableView->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft | Qt::AlignVCenter);
   ui_->tableView->verticalHeader()->setDefaultSectionSize(30);
+  ui_->tableView->verticalHeader()->hide();
   ui_->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
   ui_->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
   ui_->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);

@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <string>
+#include <memory>
 
 #include <common/util_traits.h>
 #include <base/model/ItemType.h>
@@ -115,6 +116,7 @@ namespace table
 
   template <typename DataType>
   class InMemTable final : public Table<DataType> {
+    using p_data_t = std::shared_ptr<DataType>;
   public:
     size_t rows() const override {
       return table_.size();
@@ -150,21 +152,21 @@ namespace table
       return row(r)[c];
     }
 
-    void append(DataType const& entry) override {
+    void append(p_data_t const& entry) override {
       table_.push_back(entry);
     }
 
-    void append(DataType&& entry) override {
+    void append(p_data_t&& entry) override {
       table_.push_back(std::move(entry));
     }
 
-    void append_list(std::vector<DataType> const& entries) override {
+    void append_list(std::vector<p_data_t> const& entries) override {
       for (auto const& entry : entries) {
         table_.emplace_back(entry);
       }
     }
 
-    void append_list(std::vector<DataType>&& entries) override {
+    void append_list(std::vector<p_data_t>&& entries) override {
       for (auto &&entry : entries) {
         table_.emplace_back(entry);
       }
@@ -175,7 +177,7 @@ namespace table
     }
 
   private:
-    std::vector<DataType> table_;
+    std::vector<p_data_t> table_;
 
   };
 

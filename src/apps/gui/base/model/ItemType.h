@@ -55,7 +55,28 @@ struct ItemBase {
       : ItemBase(CLS_ENUM)  \
       , val(val) {  \
     }  \
-  \
+    \
+    CLS_NAME(CLS_NAME const& other)  \
+      : ItemBase(CLS_ENUM), val(other.val) {  \
+    }  \
+    \
+    CLS_NAME(CLS_NAME&& other) noexcept  \
+      : ItemBase(CLS_ENUM), val(std::move(other.val)) {  \
+    }  \
+    \
+    CLS_NAME& operator=(CLS_NAME const& other) {  \
+      if (this == &other)  \
+        return *this;  \
+      val = other.val;  \
+      return *this;  \
+    }  \
+    \
+    CLS_NAME& operator=(CLS_NAME&& other) noexcept {  \
+      if (this == &other)  \
+        return *this;  \
+      val = std::move(other.val);  \
+      return *this;  \
+    }  \
     VAL_TYPE val {};  \
   };
 
@@ -69,7 +90,7 @@ DEF_ITEM(ItemULongLong, unsigned long long, ITEM_ULONGLONG)
 DEF_ITEM(ItemFloat, float, ITEM_FLOAT)
 DEF_ITEM(ItemDouble, double, ITEM_DOUBLE)
 DEF_ITEM(ItemLongDouble, long double, ITEM_LONGDOUBLE)
-DEF_ITEM(ItemString, std::string, ITEM_STRING)
+DEF_ITEM(ItemString, std::string, ITEM_STRING)  
 DEF_ITEM(ItemBytes, size_t, ITEM_BYTES)
 DEF_ITEM(ItemTimeStamp, size_t, ITEM_TIMESTAMP)
 DEF_ITEM(ItemDuration, size_t, ITEM_DURATION)
